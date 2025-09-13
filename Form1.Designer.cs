@@ -210,9 +210,9 @@
             autoCopyCheckBox.Size = new Size(85, 19);
             autoCopyCheckBox.TabIndex = 16;
             autoCopyCheckBox.Text = "Автокопия";
+            toolTips.SetToolTip(autoCopyCheckBox, "Автоматически копировать сгенерированный пароль в буфер обмена.");
             autoCopyCheckBox.UseVisualStyleBackColor = true;
             autoCopyCheckBox.CheckedChanged += autoCopyCheckBox_CheckedChanged;
-            toolTips.SetToolTip(autoCopyCheckBox, "Автоматически копировать сгенерированный пароль в буфер обмена.");
             // 
             // passwordLengthUpDown
             // 
@@ -222,11 +222,8 @@
             passwordLengthUpDown.Name = "passwordLengthUpDown";
             passwordLengthUpDown.Size = new Size(93, 23);
             passwordLengthUpDown.TabIndex = 17;
-            passwordLengthUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             toolTips.SetToolTip(passwordLengthUpDown, "Диапазон длины пароля 1-128.");
-            // 
-            // toolTips
-            // 
+            passwordLengthUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // PasswordGeneratorForm
             // 
