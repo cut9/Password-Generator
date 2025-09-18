@@ -1,0 +1,39 @@
+name: .NET CI (Windows Desktop)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build (Release)
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run unit tests (if any)
+      shell: pwsh
+      run: |
+        $tests = Get-ChildItem -Path . -Recurse -Filter *Tests.csproj -File
+        if ($tests.Count -eq 0) {
+          Write-Host "No test projects found, skipping tests."
+        } else {
+          foreach ($t in $tests) {
+            Write-Host "Running tests for $($t.FullName)"
+            dotnet test $t.FullName --no-build --verbosity normal
+          }
+        }
