@@ -16,8 +16,8 @@
 
 ## Быстрый старт — запустить релиз (рекомендуется для обычных пользователей)
 
-1. Перейдите в раздел **Releases**: https://github.com/cut9/Password-Generator/releases  
-2. Скачайте архив `Password-Generator-win-x64.zip` для вашей платформы.  
+1. Перейдите в раздел **Releases**: https://github.com/cut9/Password-Generator/releases
+2. Скачайте архив `win-x64.rar` для вашей платформы.
 3. Распакуйте архив и дважды кликните `Password-Generator.exe`.
 
 ---
@@ -29,4 +29,5 @@
 git clone https://github.com/cut9/Password-Generator.git
 cd Password-Generator
 dotnet restore
-dotnet run
+dotnet run --project ./PasswordGenerator/PasswordGenerator.csproj
+```
