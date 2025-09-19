@@ -7,7 +7,7 @@
 
 ---
 
-## Info
+## Информация
 - Платформа: Windows (WinForms)
 - Язык: C# .NET 8
 - Тип: GUI-приложение (окно Windows Forms)
